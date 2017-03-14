@@ -83,13 +83,18 @@ router.get('/logout', function(request, response) {
 /***********
 	Admin API
 ************/
+
 router.post('/pages/admin-details/add', sessionCheck, function(request, response) {
     var page = new Page({
         title: request.body.title,
+        description: request.body.description,
+        language: request.body.language,
         url: request.body.url,
         content: request.body.content,
         menuIndex: request.body.menuIndex,
-        date: new Date(Date.now())
+        creation_date: new Date(Date.now()),
+        tags: request.body.tags,
+        comments: request.body.comments
     });
 
     page.save(function(err) {
@@ -110,10 +115,19 @@ router.post('/pages/admin-details/update', sessionCheck, function(request, respo
     }, {
         $set: {
             title: request.body.title,
+            description: request.body.description,
+            language: request.body.language,
             url: request.body.url,
             content: request.body.content,
             menuIndex: request.body.menuIndex,
-            date: new Date(Date.now())
+            creation_date: new Date(Date.now()),
+            tags: request.body.tags,
+            comments: request.body.comments,
+            title: request.body.title,
+            url: request.body.url,
+            content: request.body.content,
+            menuIndex: request.body.menuIndex,
+            update_date: new Date(Date.now())
         }
     }).exec();
     response.send("Page updated");
@@ -156,7 +170,7 @@ router.get('/pages/admin-details/:id', sessionCheck, function(request, response)
 ***************/
 router.get('/pages/', function(request, response) {
 
-        return Page.find({}, {'_id': 0, '__v':0}, function(err, pages) {
+        return Page.find({}, {'_id': 0, '__v':0, 'content':0, 'comments':0}, function(err, pages) {
             if (!err) {
                 return response.send(pages);
             } else {
