@@ -18,7 +18,7 @@ var dbUser = process.env.DB_USERNAME;
 var dbPwd = process.env.DB_PASSWORD;
 var dbUrl = process.env.DB_URL;
 
-mongoose.connect('mongodb://'+dbUser+':'+dbPwd'@'+dbUrl);
+mongoose.connect('mongodb://'+dbUser+':'+dbPwd+'@'+dbUrl);
 
 var db = mongoose.connecetion;
 
