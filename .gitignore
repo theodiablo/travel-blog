@@ -1,0 +1,8 @@
+*.wt
+*.lock
+*.turtle
+src/api/db/journal/
+src/api/db/diagnostic.data/
+src/api/db/WiredTiger
+src/api/db/storage.bson
+src/node_modules/
