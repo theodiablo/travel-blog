@@ -23,3 +23,9 @@
 },
 ]
 //Users
+//
+// 	Endpoint		/add-user
+{
+	"password" : "##########",
+	"username" : "##########"
+}

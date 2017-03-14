@@ -6,3 +6,5 @@ src/api/db/diagnostic.data/
 src/api/db/WiredTiger
 src/api/db/storage.bson
 src/node_modules/
+src/public/node_modules/
+src/public/bower_components/
