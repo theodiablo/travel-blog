@@ -14,9 +14,11 @@ var api = require('./routes/api');
 
 var app = express();
 
+var dbUser = process.env.DB_USERNAME;
+var dbPwd = process.env.DB_PASSWORD;
+var dbUrl = process.env.DB_URL;
 
-mongoose.connect('mongodb://localhost:27017/travel_blog');
-
+mongoose.connect('mongodb://'+dbUser+':'+dbPwd'@'+dbUrl);
 
 var db = mongoose.connecetion;
 

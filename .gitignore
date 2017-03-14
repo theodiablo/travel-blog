@@ -9,3 +9,4 @@ node_modules/
 bower_components/
 public/package.json.old
 *.old
+public/npm-debug.log
